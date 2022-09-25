@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 import com.sun.istack.NotNull;
 
 @Entity
-public class Empregos {
+public class Emprego {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -76,7 +76,7 @@ public class Empregos {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Empregos other = (Empregos) obj;
+		Emprego other = (Emprego) obj;
 		if (descricao == null) {
 			if (other.descricao != null)
 				return false;
