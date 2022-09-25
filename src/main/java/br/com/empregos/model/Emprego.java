@@ -17,7 +17,7 @@ public class Emprego {
 	
 	@NotNull
 	@Size(min = 4)
-    private String tipo;
+    private String titulo;
 	
 	@NotNull
 	@Size(min = 3)
@@ -34,11 +34,11 @@ public class Emprego {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getTipo() {
-		return tipo;
+	public String getTitulo() {
+		return titulo;
 	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 	public String getEmpresa() {
 		return empresa;
@@ -59,13 +59,13 @@ public class Emprego {
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((empresa == null) ? 0 : empresa.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
 	
 	@Override
 	public String toString() {
-		return "Empregos [id=" + id + ", tipo=" + tipo + ", empresa=" + empresa + ", descricao=" + descricao + "]";
+		return "Empregos [id=" + id + ", titulo=" + titulo + ", empresa=" + empresa + ", descricao=" + descricao + "]";
 	}
 	
 	@Override
@@ -89,10 +89,10 @@ public class Emprego {
 			return false;
 		if (id != other.id)
 			return false;
-		if (tipo == null) {
-			if (other.tipo != null)
+		if (titulo == null) {
+			if (other.titulo != null)
 				return false;
-		} else if (!tipo.equals(other.tipo))
+		} else if (!titulo.equals(other.titulo))
 			return false;
 		return true;
 	}

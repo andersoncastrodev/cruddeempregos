@@ -10,7 +10,7 @@
   
   <div th:each="emprego : ${empregos}">
      
-     <h4 th:inline="text"> [[ ${empregos.titulo} ]] an [[ ${emprego.empresa}]] </h4>
+     <h4 th:inline="text"> [[${emprego.titulo}]] na [[${emprego.empresa}]] </h4>
      <p th:text="${emprego.descricao}"></p>
   </div>
   
