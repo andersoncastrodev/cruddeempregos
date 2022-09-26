@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="https://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Lista de Empregos</title>
+
 
 <!-- Corrigir o ERRO NO ICONE -->
 <link rel="shortcut icon" href="#">
@@ -19,17 +20,43 @@
 
 <div class="container">
 
+<nav id="menu" class="nav nav-pills nav-fill" >
 
- <h1> Formulario de Emprego </h1>
+  <a class="nav-item nav-link active" href="/add">Cadastro de Empregos</a>
+  <a class="nav-item nav-link" href="#"></a>
+  <a class="nav-item nav-link" href="#"></a>
+  <a class="nav-item nav-link" href="#"></a>
+   
+</nav>
 
-			  <a href="/add">Adicionar um Emprego</a> <br>
+ <h1> Lista de Empregos </h1>
+
+
+			  <table class="table">
+			 
+			  <thead class="table table-striped table-dark">
+			    <tr>
+			      <th scope="col">Titulo</th>
+			      <th scope="col">Empresa</th>
+			      <th scope="col">Descrição</th>
+			      <th scope="col"></th>
+			      <th scope="col"></th>
+			    </tr>
+			  </thead>
 			  
-			  <div th:each="emprego : ${empregos}">
-			     
-			     <h4 th:inline="text"> [[${emprego.titulo}]] na [[${emprego.empresa}]] </h4>
-			     <p th:text="${emprego.descricao}"></p>
-			  </div>
-  
+			  <tbody>
+			       <tr th:each="emprego : ${empregos}">
+		            
+		            <td> <span th:text="${emprego.titulo}"></span> </td>
+		            <td> <span th:text="${emprego.empresa}"></span> </td>
+		            <td> <span th:text="${emprego.descricao}"></span> </td>
+		            <td> <a href="#">Editar</a> </td>
+		            <td> <a href="#">Excluir</a> </td>
+		            
+		           </tr>
+			  </tbody>
+			  
+			</table>
 </div>
   
   

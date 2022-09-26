@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="https://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Spring Boot</title>
 
+<link rel="stylesheet" href="/css/style.css" > 
+ 
 <!-- Importante BootStrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
 
 <div class="container">
-	  <h1>Formulario de Emprego</h1>
-	  <form action="#" th:action="@{/process}" th:object=${emprego} method="post">
-	     
-	       Titulo: <input type="text" th:field="*{titulo}"> 
-	       <span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"> </span> <br>
-	       
-	       Empresa: <input type="text" th:field="*{empresa}"> 
-	       <span th:if="${#fields.hasErrors('empresa')}" th:errors="*{empresa}"> </span> <br>
-	       
-	       Descricao:<textarea rows="3" th:field="*{descricao}"></textarea>
-	       <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"> </span> <br>
-	       
-	       <input type="submit" value = "Enviar">
-	       
-	  </form>
+
+<nav id="menu" class="nav nav-pills nav-fill" >
+
+  <a class="nav-item nav-link" href="#"></a>
+  <a class="nav-item nav-link" href="#"></a>
+  <a class="nav-item nav-link" href="#"></a>
+  <a class="nav-item nav-link active" href="/">Voltar</a>
+   
+</nav>
+
+ 		<h1> Formulario de Emprego</h1>
+
+		<form action="#" th:action="@{/process}" th:object=${emprego} method="post">
+		  
+		  <div class="form-group">
+		    <label for="titulo">Titulo da Profissão</label>
+		    <input type="text" class="form-control" id="titulo"  th:field="*{titulo}">
+		    <span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"> </span>
+		  </div> 
+		  <div class="form-group">
+		    <label for="empresa">Nome da Empresa</label>
+		    <input type="text" class="form-control" id="empresa"  th:field="*{empresa}">
+		    <span th:if="${#fields.hasErrors('empresa')}" th:errors="*{empresa}"> </span>
+		  </div>
+		  <div class="form-group">
+		    <label for="descricao">Descrição do Trabalho</label>
+		    <input type="text" class="form-control" id="descricao"  th:field="*{descricao}">
+		    <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"> </span>
+		  </div> <br><br>
+		  <button type="submit" class="btn btn-primary">Enviar</button>
+		</form>
 </div>  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>   
 </body>

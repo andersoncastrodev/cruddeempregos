@@ -2,8 +2,10 @@
 
 h1 {
 	text-align: center;
-	color: red;
+	color: blue;
 	font-size: 20px;
-	border: solid 1px;
-	
+}
+
+#menu{
+	margin-top: 50px;
 }
