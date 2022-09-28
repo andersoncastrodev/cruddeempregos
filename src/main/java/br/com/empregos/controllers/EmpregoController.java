@@ -1,5 +1,7 @@
 package br.com.empregos.controllers;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,6 +32,7 @@ public class EmpregoController {
 		return "list";
 	}
 	
+	
 	@GetMapping("/add")
 	public String empregoForm(Model model) {
 		
@@ -36,7 +40,7 @@ public class EmpregoController {
 		return "empregoForm";
 	}
 	
-	@PostMapping("/process")
+	@PostMapping("/salvando")
 	public String processForm(@Valid Emprego emprego, BindingResult result) {
 		 
 		if(result.hasErrors()) { //Se Tiver erros Entra aqui.
@@ -44,6 +48,28 @@ public class EmpregoController {
 		}
 		empregoRepository.save(emprego);
 		return "redirect:/";
+	}
+	
+    @GetMapping("/vieweditar/{id}")
+    public String viewFormEditar(@PathVariable("id") Long id,Model model) {
+    	
+        Optional<Emprego>  emprego = empregoRepository.findById(id);
+		
+		model.addAttribute("emprego", emprego);
+		
+       return "empregoEditar";	
+    }
+    
+	@PostMapping("editar/{id}")
+	public String editar(@Valid Emprego emprego, BindingResult result, @PathVariable int id) {
+	   
+		if(result.hasErrors()) { //Se Tiver erros Entra aqui.
+			return "empregoForm";
+		}
+		empregoRepository.save(emprego);
+		
+		return "redirect:/";
+		
 	}
 	
 }

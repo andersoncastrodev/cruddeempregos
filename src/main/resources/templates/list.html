@@ -36,6 +36,7 @@
 			 
 			  <thead class="table table-striped table-dark">
 			    <tr>
+			      <th scope="col">Cod.</th>
 			      <th scope="col">Titulo</th>
 			      <th scope="col">Empresa</th>
 			      <th scope="col">Descrição</th>
@@ -47,10 +48,12 @@
 			  <tbody>
 			       <tr th:each="emprego : ${empregos}">
 		            
+		             <td> <span th:text="${emprego.id}"></span> </td>
 		            <td> <span th:text="${emprego.titulo}"></span> </td>
 		            <td> <span th:text="${emprego.empresa}"></span> </td>
 		            <td> <span th:text="${emprego.descricao}"></span> </td>
-		            <td> <a href="#">Editar</a> </td>
+		            <td> <a th:href="@{/vieweditar/{id}(id=${emprego.id})}" th:method="get">Editar</a> </td>
+		           
 		            <td> <a href="#">Excluir</a> </td>
 		            
 		           </tr>
