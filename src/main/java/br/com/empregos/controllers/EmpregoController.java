@@ -1,6 +1,6 @@
 package br.com.empregos.controllers;
 
-import java.util.Optional;
+
 
 import javax.validation.Valid;
 
@@ -51,25 +51,34 @@ public class EmpregoController {
 	}
 	
     @GetMapping("/vieweditar/{id}")
-    public String viewFormEditar(@PathVariable("id") Long id,Model model) {
+    public String viewFormEditar(@PathVariable("id") Long id, Model model) {
     	
-        Optional<Emprego>  emprego = empregoRepository.findById(id);
+        Emprego emprego = empregoRepository.findAllById(id);
 		
-		model.addAttribute("emprego", emprego);
+		model.addAttribute("empregos", emprego);
 		
        return "empregoEditar";	
     }
     
 	@PostMapping("editar/{id}")
-	public String editar(@Valid Emprego emprego, BindingResult result, @PathVariable int id) {
+	public String editar(@Valid Emprego emprego, BindingResult result, @PathVariable Long id) {
 	   
 		if(result.hasErrors()) { //Se Tiver erros Entra aqui.
-			return "empregoForm";
+			return "empregoEditar";
 		}
 		empregoRepository.save(emprego);
 		
-		return "redirect:/";
+		return "redirect:/";		
+	}
+	
+	@GetMapping("/deletar{id}")
+	public String deletar(@PathVariable Long id, Model model ) {
 		
+		Emprego emprego = empregoRepository.findAllById(id);
+		
+		empregoRepository.delete(emprego);
+		
+		return "redirect:/";
 	}
 	
 }
