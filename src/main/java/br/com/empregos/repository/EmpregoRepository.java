@@ -1,11 +1,12 @@
 package br.com.empregos.repository;
 
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.empregos.model.Emprego;
 
-public interface EmpregoRepository extends CrudRepository<Emprego, Long> {
+public interface EmpregoRepository extends JpaRepository<Emprego, Long> {
 
 	/*
 	 * Posso Sobrecrever os Metodos da Interface AQUI.
@@ -17,6 +18,10 @@ public interface EmpregoRepository extends CrudRepository<Emprego, Long> {
 	 * Posso Sobrecrever os Metodos da Interface AQUI.
 	 * Aqui Retorna uma LISTA DE Emprego
 	 */
-	Iterable<Emprego> findAll();
+	List<Emprego> findAll();
+	
+	/*
+	 * 
+	 */
 	
 }

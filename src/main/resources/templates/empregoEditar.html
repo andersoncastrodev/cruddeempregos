@@ -12,6 +12,7 @@
 <body>
 
 <div class="container">
+ 		<h1> Alterando Emprego</h1>
 
 <nav id="menu" class="nav nav-pills nav-fill" >
 
@@ -21,8 +22,6 @@
   <a class="nav-item nav-link active" href="/">Voltar</a>
    
 </nav>
-
- 		<h1> Alterando Emprego</h1>
 
 		<form action="#" th:object=${empregos} th:action="@{/editar/{id}(id=${empregos.id})}"  method="post">
 		  
@@ -41,7 +40,7 @@
 		    <input type="text" class="form-control" id="descricao" th:field="${empregos.descricao}">
 		    <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"> </span>
 		  </div> <br><br>
-		  <button type="submit" class="btn btn-primary">Enviar</button>
+		  <button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
 		
 </div>  

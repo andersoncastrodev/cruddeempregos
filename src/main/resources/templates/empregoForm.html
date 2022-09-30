@@ -12,7 +12,8 @@
 <body>
 
 <div class="container">
-
+ 		<h1> Formulario de Emprego</h1>
+ 		
 <nav id="menu" class="nav nav-pills nav-fill" >
 
   <a class="nav-item nav-link" href="#"></a>
@@ -21,9 +22,6 @@
   <a class="nav-item nav-link active" href="/">Voltar</a>
    
 </nav>
-
- 		<h1> Formulario de Emprego</h1>
-
 		<form action="#" th:action="@{/salvando}" th:object=${emprego} method="post">
 		  
 		  <div class="form-group">
@@ -41,7 +39,7 @@
 		    <input type="text" class="form-control" id="descricao"  th:field="${emprego.descricao}">
 		    <span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"> </span>
 		  </div> <br><br>
-		  <button type="submit" class="btn btn-primary">Enviar</button>
+		  <button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
 		
 </div>  
